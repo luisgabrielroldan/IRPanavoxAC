@@ -1,2 +1,3 @@
-# IRPanavoxAC
-This library contains IRLib implementation for sender/decoder IR signals for Panavox Air Conditioners.
+# PANAVOX AC IR Library
+
+This Arduino library contains IRLib sender/decoder for Panavox Air Conditioners.
