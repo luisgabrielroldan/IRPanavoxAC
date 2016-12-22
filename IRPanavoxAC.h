@@ -8,9 +8,6 @@
 #ifndef _IR_PANAVOX_AC_H_
 #define _IR_PANAVOX_AC_H_
 
-#include <IRLib.h>
-#include <IRLibMatch.h>
-
 #define PANAVOX_AC				LAST_PROTOCOL + 10
 
 #define PANAVOX_AC_FREQ         38
@@ -34,36 +31,38 @@
 #define PANAVOX_AC_CMD_MODE		2
 #define PANAVOX_AC_CMD_EXTRA	5
 
-typedef enum ac_mode_t {
+enum {
 	AC_MODE_OFF = 0,
 	AC_MODE_AUTO = 1,
 	AC_MODE_COOL = 2,
 	AC_MODE_HEAT = 3,
 	AC_MODE_DRY = 4,
 	AC_MODE_FAN = 5
-} ac_mode_t;
+};
+
+typedef unsigned char ac_mode_t;
 
 typedef struct panavox_ac_cmd_t {
-	uint8_t type :4;
-	uint8_t sign :4;
-	uint8_t param1;
-	uint8_t param2;
+	unsigned char type :4;
+	unsigned char sign :4;
+	unsigned char param1;
+	unsigned char param2;
 } panavox_ac_cmd_t;
 
 typedef struct panavox_ac_cmd_mode_param1_t {
-	uint8_t ext :5; // Fill with ones
-	uint8_t fan_speed :3;
+	unsigned char ext :5; // Fill with ones
+	unsigned char fan_speed :3;
 } panavox_ac_cmd_mode_param1_t;
 
 typedef struct panavox_ac_cmd_mode_param2_t {
-	uint8_t ext :2;
-	uint8_t mode :2;
-	uint8_t temp :4;
+	unsigned char ext :2;
+	unsigned char mode :2;
+	unsigned char temp :4;
 } panavox_ac_cmd_mode_param2_t;
 
 typedef struct panavox_ac_cmd_mode_t {
-	uint8_t type :4;
-	uint8_t sign :4;
+	unsigned char type :4;
+	unsigned char sign :4;
 	panavox_ac_cmd_mode_param1_t param1;
 	panavox_ac_cmd_mode_param2_t param2;
 } panavox_ac_cmd_mode_t;
@@ -77,11 +76,9 @@ typedef enum {
 
 typedef struct panavox_ac_mode_state_t {
 	ac_mode_t mode;
-	int8_t fan_speed;
-	int8_t temp;
+	unsigned char fan_speed;
+	unsigned char temp;
 } panavox_ac_mode_state_t;
 
-#include "IRdecodePanavoxAC.h"
-#include "IRsendPanavoxAC.h"
 
 #endif /* _IR_PANAVOX_AC_H_ */

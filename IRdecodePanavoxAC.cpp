@@ -5,6 +5,8 @@
  *      Author: Gabriel Roldán
  */
 
+#include <IRLib.h>
+#include <IRLibMatch.h>
 #include "IRPanavoxAC.h"
 #include "IRdecodePanavoxAC.h"
 

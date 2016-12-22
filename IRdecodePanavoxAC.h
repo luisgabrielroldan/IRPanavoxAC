@@ -10,6 +10,9 @@
 
 #define READ_ERROR		-1
 
+#include <IRLib.h>
+#include <IRLibMatch.h>
+
 class IRdecodePanavoxAC: public virtual IRdecodeBase {
 private:
 	int readNextByte(uint8_t offset);

@@ -14,8 +14,6 @@ void IRsendPanavoxAC::sendPacket(uint32_t value) {
 	mark(PANAVOX_AC_HDR_MARK);
 	space(PANAVOX_AC_HDR_SPACE);
 
-	Serial.println(value, HEX);
-
 	for (int i = 0; i < 3; i++) {
 		sendByte(data[i]);
 		sendByte(~data[i]);

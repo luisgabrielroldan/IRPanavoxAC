@@ -8,6 +8,12 @@
 #ifndef _IR_SEND_PANAVOX_AC_H_
 #define _IR_SEND_PANAVOX_AC_H_
 
+#include <Arduino.h>
+#include <IRLib.h>
+#include <IRLibMatch.h>
+
+#include "IRPanavoxAC.h"
+
 #define CHECK_BIT(var,pos) ((var) & (1<<(pos)))
 
 class IRsendPanavoxAC: public virtual IRsendBase {
